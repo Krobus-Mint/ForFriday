@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebCam Access</title>
+  </head>
+  <body>
+    <video id="myVideo" autoplay></video>
+
+    <script>
+      const videoElement = document.getElementById("myVideo");
+
+      navigator.mediaDevices.getUserMedia({ video: true })
+        .then(mediaStream => {
+          videoElement.srcObject = mediaStream;
+        })
+        .catch(error => {
+          console.error("Error accessing camera:", error);
+        });
+    </script>
+  </body>
+</html>
